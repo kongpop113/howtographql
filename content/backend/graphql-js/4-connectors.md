@@ -44,7 +44,8 @@ const MONGO_URL = 'mongodb://localhost:27017/hackernews';
 
 // 2
 module.exports = async () => {
-  const db = await MongoClient.connect(MONGO_URL);
+  const database = await MongoClient.connect(MONGO_URL);
+  const db = database.db('links');
   return {Links: db.collection('links')};
 }
 ```
